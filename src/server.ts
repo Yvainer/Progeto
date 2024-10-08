@@ -1,11 +1,15 @@
 //importando o express
 import express, {Request, Response} from 'express'
-
+import path from 'path'
 //Inportando o arquivo index.ts das rotas
 import mainRoutes from './router/index'
-
 //usando express
 const server = express()
+
+//conficuração da pasta public
+server.use(express.static(path.join(__dirname,'../public')))
+
+
 
 //inserindo a rota no servidor
 server.use(mainRoutes)
