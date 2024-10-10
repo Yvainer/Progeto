@@ -3,8 +3,17 @@ import express, {Request, Response} from 'express'
 import path from 'path'
 //Inportando o arquivo index.ts das rotas
 import mainRoutes from './router/index'
-//usando express
+//usando express 
 const server = express()
+//inportando template engine(para usar HTML)
+import mustache from 'mustache-express'
+
+//c0nfigurando o Mustache
+server.set('view engine','mustache')
+
+//configurando o camnho da pasta views
+server.set('views',path.join(__dirname,'views'))
+server.engine('mustache',mustache())
 
 //conficuração da pasta public
 server.use(express.static(path.join(__dirname,'../public')))
@@ -20,5 +29,5 @@ server.use((req:Request,res:Response) =>{
 })
 
 //gerar o servidor na porta 3000
-server.listen(3000)
+server.listen(4000)
 
