@@ -1,0 +1,17 @@
+{{partials/header}}
+
+<h1>Olá, digite seu nome, idade,telefone e endereço por favor</h1>
+<form  method="GET">
+    <input type="text" name="nome" placeholder="Digite seu nome">
+    <input type="text" name="idade" placeholder="Digite sua idade">
+    <input type="text" name="telefone" placeholder="Digite seu telefone">
+    <input type="text" name="endereço" placeholder="Digite seu endereço">
+    <input type="submit" value="enviar">
+</form>
+
+{{#nome}}
+    Olá {{nome}}, seja bem-vinda(o), consta no sistema que você tem {{idade}} de idade, seu telefone para contato é: {{telefone}} e o endereço é:{{endereco}}
+{{/nome}}
+
+
+{{partials/footer}}

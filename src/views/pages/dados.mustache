@@ -1,0 +1,16 @@
+{{>partials/header}}
+
+<form method="POST" action="dados-resultado">
+    digite seus dados
+    <input type="string" email="email" placeholder="Digite seu E-mail">
+    <input type="number" senha="senha" placeholder="Digite sua senha">
+    <input type="submit" value="Enviar">
+</form>
+
+{{#mostrarDados}}
+     Dados armazenados
+{{/mostrarDados}}
+
+
+
+{{>partials/footer}}

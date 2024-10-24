@@ -1,33 +1,36 @@
 //importando o express
-import express, {Request, Response} from 'express'
+import express,{Request, Response} from 'express'
 import path from 'path'
-//Inportando o arquivo index.ts das rotas
-import mainRoutes from './router/index'
-//usando express 
-const server = express()
-//inportando template engine(para usar HTML)
+//importando o arquivo index.ts das rotas
+import mainRoutes from './routes/index'
+//importando template engine (para usar HTML)
 import mustache from 'mustache-express'
+import dotenv from 'dotenv'
 
-//c0nfigurando o Mustache
+dotenv.config()
+
+//usando express
+const server = express()
+
+//configurando o Mustache
 server.set('view engine','mustache')
 
-//configurando o camnho da pasta views
+//configurando o caminha da pasta views
 server.set('views',path.join(__dirname,'views'))
 server.engine('mustache',mustache())
 
-//conficuração da pasta public
+//configuração da pasta public
 server.use(express.static(path.join(__dirname,'../public')))
-
-
+//habilitando o POST no código
+server.use(express.urlencoded({extended: true}))
 
 //inserindo a rota no servidor
 server.use(mainRoutes)
-
-//Pagina nõa encvontrada
+//página não encontrada
 server.use((req:Request,res:Response) =>{
-    res.status(404).send("Pagina não encontrada")
+    res.status(404).send("Página não encontrada")
 })
 
-//gerar o servidor na porta 3000
-server.listen(4000)
+//gerar o servidor na porta 2000
+server.listen(process.env.PORT)
 

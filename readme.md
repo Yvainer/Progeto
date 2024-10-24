@@ -1,9 +1,7 @@
-## Para instalar os pacotes
-
+## Para instalar os pacotes  
 `npm install`
 
 ## Para rodar o servidor
-
 `npm run start-dev`
-
-abra o navegardor e coloque localhost:3000
+ 
+Abra o navegador e coloque localhost:3000

@@ -1,0 +1,37 @@
+{{>partials/header}}
+<body>
+<section>
+    <p>Aqui é o conteudo do site</p>
+    {{#aparecerMensagem}}
+       <p> Opa, {{nome}} {{sobreNome}} seja bem vindo!</p>
+    {{/aparecerMensagem}}
+
+    {{#mostrarIdade}}
+    <p>Opa, você tem {{idade}} anos, e  é maior de idade </p>
+    {{/mostrarIdade}}
+
+    {{^mostrarIdade}}
+    <p>Opa, você tem {{idade}} anos, você é menor de idade </p>
+    {{/mostrarIdade}}
+
+    {{#produtos}}
+
+    <ul>
+        <li> {{titulo}} - R$ {{preco}} </li>
+    </ul>
+     {{/produtos}}
+
+    <ul>
+        {{#frases}}
+        <li>{{.}}</li>
+        {{/frases}}
+    </ul>
+    <!--  -->
+    {{^frases}}
+        Não temos frases motivacionais hoje
+    {{/frases}}
+
+</section>
+
+</body>
+{{>partials/footer}}

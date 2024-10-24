@@ -1,3 +1,6 @@
+{{>partials/header}}
+<body>
+<section>
 <title>Aqui é meu site</title>
 
 <<header>
@@ -5,5 +8,39 @@
 </header>
 <section>
        <p>Aqui é o conteudo do site</p>
-        <p>Oi {{user.nome}}, você tem {{user.idade}}tudo bem?</p>
+        {{#aparecerMensagem}}
+          <p> Opa, {{nome}} {{sobreNome}} seja bem vindo!</p>
+        {{/aparecerMensagem}}
+
+       {{#mostrarIdade}}
+         <p> Opa, você tem {{idade}} anos, e é maior de idade </p>
+        {{/mostrarIdade}}
+
+        {{^mostrarIdade}}
+         <p> Opa, você tem {{idade}} anos, e é maior de idade </p>
+        {{/mostrarIdade}}
+        
+
+        {{#produtos}}
+
+        <ul>
+          <li> {{titulo}} - R$ {{preco}} </li>
+        </ul>
+
+        {{/produtos}}
+
+        <ul>
+          {{#frases}}
+          <li>{{.}}</li>
+          {{/frases}}
+       </ul> 
+
+       {{^frases}}
+            Não temos frases motivadoras hoje
+       {{/frases}}  
+
+
 </section>
+
+</body>
+
